@@ -7,6 +7,8 @@
       </router-link>
     </mt-header>
     <!-- 内容 -->
+    <div class="clear_margin">
+    </div>
     <div class="queryPassword-content">
       <!-- 请输入4位密码 -->
       <div class="inputPassword">
@@ -136,6 +138,7 @@
 
 <style lang="sass">
   .queryPassword
+    height: 100%
     .queryPassword-header
     .queryPassword-content
       margin-top: 50px
