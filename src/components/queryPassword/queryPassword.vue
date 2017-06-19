@@ -93,7 +93,7 @@
               duration: 2000
             })
             setTimeout(() => {
-              tmp.replace('/salaryBill')
+              tmp.replace('/salaryHome')
             }, 2000)
           } else {
             this.storageNumber = []   // 当前数组 变为空数组

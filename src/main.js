@@ -13,6 +13,11 @@ Icon.inject('down_arrow')
 Icon.inject('setting')
 Icon.inject('backspace')
 Icon.inject('password')
+Icon.inject('icon_my')  // 我的
+Icon.inject('icon_salary')  // 工资图标
+Icon.inject('icon_phone')  // 通用手机图标
+Icon.inject('icon_phone_input')  //  输入框 手机图标
+Icon.inject('icon_security_input')  //  输入框  验证码安全
 
 Vue.component('icon', Icon)
 
