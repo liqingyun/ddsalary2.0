@@ -11,7 +11,7 @@
     </div>
     <div class="personalCenter_content">
       <!-- 个人信息 -->
-      <div class="personalInformationBox">
+      <div class="personalInformationBox" @click="jumpPersonalData()">
         <!-- 信息内容 -->
         <div class="information_content">
           <!-- 头像 -->
@@ -60,6 +60,11 @@
 <script>
 import Footer from '../footer/footer'
 export default {
+  methods: {
+    jumpPersonalData () {
+      this.$router.push('/personalData')
+    }
+  },
   components: {
     'my-footer': Footer
   }
