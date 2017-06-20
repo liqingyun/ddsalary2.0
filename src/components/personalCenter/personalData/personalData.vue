@@ -7,9 +7,18 @@
       </router-link>
     </mt-header>
     <!-- 个人资料列表 -->
-    <div class="">
-      <ul class="">
-        <li class=""></li>
+    <div class="clear_margin"></div>
+    <div class="personalData_content">
+      <ul class="personalDataList">
+        <li class="personalDataItem">
+          <mt-cell title="姓名" value="李青云"></mt-cell>
+        </li>
+        <li class="personalDataItem">
+          <mt-cell title="手机" is-link value="13085352685"></mt-cell>
+        </li>
+        <li class="personalDataItem">
+          <mt-cell title="所属部门" value="云计算事业部"></mt-cell>
+        </li>
       </ul>
     </div>
   </div>
@@ -24,4 +33,18 @@ export default {
   .personalData
     height: 100%
     background: #f2f2f2
+    .personalData_content
+      margin-top: 50px
+      .personalDataList
+        padding: 0px 10px
+        background: #fff
+        .personalDataItem
+          border-bottom: 1px solid #dedede
+          &:last-child
+            border: none
+          .mint-cell-wrapper
+            padding: 0px
+          .mint-cell-value
+            font-size: 14px
+            margin-right: 30px
 </style>

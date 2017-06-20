@@ -243,9 +243,12 @@ a:hover {
 .mint-cell-allow-right::after {
   width: 10px;
   height: 10px;
-  right: 15px;
+  right: 10px;
 }
 .is-link > span {
   font-size: 14px;
+}
+.mint-cell-value.is-link {
+    margin-right: 30px;
 }
 </style>

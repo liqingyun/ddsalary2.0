@@ -133,10 +133,14 @@ export default {
             width: 100%
       .personalFunctionList
         margin-top: 10px
+        padding: 0px 10px
+        background: #fff
         .personalFunctionItem
           border-bottom: 1px solid #dedede
           &:last-child
             border: none
+          .mint-cell-wrapper
+            padding: 0px
           // 公共的 icon 样式
           .iconStyle
             color: #26a2ff
