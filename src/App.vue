@@ -240,4 +240,12 @@ a:visited,
 a:hover {
   text-decoration: none;
 }
+.mint-cell-allow-right::after {
+  width: 10px;
+  height: 10px;
+  right: 15px;
+}
+.is-link > span {
+  font-size: 14px;
+}
 </style>

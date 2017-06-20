@@ -18,6 +18,9 @@ Icon.inject('icon_salary')  // 工资图标
 Icon.inject('icon_phone')  // 通用手机图标
 Icon.inject('icon_phone_input')  //  输入框 手机图标
 Icon.inject('icon_security_input')  //  输入框  验证码安全
+Icon.inject('icon_modifyPassword')   // 修改密码 (钥匙)
+Icon.inject('icon_feedback')  //  意见反馈
+Icon.inject('icon_modifyInformation')   //  修改信息
 
 Vue.component('icon', Icon)
 
