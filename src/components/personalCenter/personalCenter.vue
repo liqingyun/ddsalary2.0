@@ -46,7 +46,7 @@
           </mt-cell>
         </li>
         <li class="personalFunctionItem">
-          <mt-cell title="密码设置" is-link value="修改">
+          <mt-cell title="密码设置" is-link value="修改" to="/setPassword">
             <icon slot="icon" class="iconStyle" name="icon_modifyPassword" scale="2.8"></icon>
           </mt-cell>
         </li>
@@ -74,7 +74,7 @@ export default {
 <style lang="sass">
   .personalCenter
     height: 100%
-    background: #f2f2f2
+    background: #f1f1f1
     .personalCenter-header
     .personalCenter_content
       margin-top: 50px
@@ -139,8 +139,15 @@ export default {
           border-bottom: 1px solid #dedede
           &:last-child
             border: none
+          .mint-cell
+            min-height: 40px
           .mint-cell-wrapper
             padding: 0px
+            .mint-cell-text
+              font-size: 14px
+            .mint-cell-value
+              span
+                font-size: 12px
           // 公共的 icon 样式
           .iconStyle
             color: #26a2ff

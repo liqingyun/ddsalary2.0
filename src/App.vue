@@ -185,22 +185,22 @@ body {
 
 ::-webkit-input-placeholder {
   /* WebKit browsers */
-  font-size: 16px;
+  font-size: 14px;
 }
 
 :-moz-placeholder {
   /* Mozilla Firefox 4 to 18 */
-  font-size: 16px;
+  font-size: 14px;
 }
 
 ::-moz-placeholder {
   /* Mozilla Firefox 19+ */
-  font-size: 16px;
+  font-size: 14px;
 }
 
 :-ms-input-placeholder {
   /* Internet Explorer 10+ */
-  font-size: 16px;
+  font-size: 14px;
 }
 
 .mint-cell-wrapper,
@@ -249,6 +249,13 @@ a:hover {
   font-size: 14px;
 }
 .mint-cell-value.is-link {
-    margin-right: 30px;
+  margin-right: 30px;
+}
+:focus{
+  outline: 0;
+}
+input[type="button"], button {
+  border: none;
+  background-color: transparent;
 }
 </style>

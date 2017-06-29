@@ -32,7 +32,7 @@ export default {
 <style lang="sass">
   .personalData
     height: 100%
-    background: #f2f2f2
+    background: #f1f1f1
     .personalData_content
       margin-top: 50px
       .personalDataList
