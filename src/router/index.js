@@ -6,6 +6,7 @@ import PersonalCenter from '@/components/personalCenter/personalCenter'
 import PersonalData from '@/components/PersonalCenter/personalData/personalData'
 import SetPassword from '@/components/setPassword/setPassword'
 import ChangeCellPhoneNumber from '@/components/PersonalCenter/personalData/changeCellPhoneNumber/changeCellPhoneNumber'
+import BindNewPhoneNumber from '@/components/PersonalCenter/personalData/changeCellPhoneNumber/bindNewPhoneNumber/bindNewPhoneNumber'
 
 Vue.use(Router)
 
@@ -40,6 +41,11 @@ export default new Router({
       path: '/changeCellPhoneNumber',
       name: 'ChangeCellPhoneNumber',
       component: ChangeCellPhoneNumber
+    },
+    {
+      path: '/bindNewPhoneNumber',
+      name: 'BindNewPhoneNumber',
+      component: BindNewPhoneNumber
     }
   ]
 })

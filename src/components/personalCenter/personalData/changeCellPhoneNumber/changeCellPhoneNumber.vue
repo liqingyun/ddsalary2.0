@@ -22,7 +22,7 @@
       </div>
       <!-- 跟换按钮 -->
       <div class="changeCellPhoneNumberBtnBox">
-        <button class="changeCellBtn" type="button" name="button">更换手机号码</button>
+        <button class="changeCellBtn" @click="jumpChangeCellFun()" type="button" name="button">更换手机号码</button>
       </div>
     </div>
   </div>
@@ -30,6 +30,12 @@
 
 <script>
 export default {
+  methods: {
+    jumpChangeCellFun () {
+      this.$router.push('/bindNewPhoneNumber')
+      console.log('/bindNewPhoneNumber')
+    }
+  }
 }
 </script>
 
@@ -57,7 +63,7 @@ export default {
           font-size: 10px
           -webkit-text-size-adjust: none
       .changeCellPhoneNumberBtnBox
-        margin-top: 20px
+        margin-top: 30px
         .changeCellBtn
           display: block
           margin: 0px auto
