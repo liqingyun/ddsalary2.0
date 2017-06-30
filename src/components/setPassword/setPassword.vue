@@ -3,7 +3,7 @@
   <div class="setPasswordPage">
     <!-- 头部 -->
     <mt-header class="setPassword-header" fixed title="密码设置">
-      <mt-button slot="left" icon="back">返回</mt-button>
+      <mt-button slot="left" icon="back" @click="setPasswordBack()">返回</mt-button>
     </mt-header>
     <!-- 内容 -->
     <div class="setPassword_content">
@@ -64,6 +64,10 @@ export default {
         this.verificationBtn = '获取短信验证码'
         this.nums = 60 // 重置时间
       }
+    },
+    setPasswordBack () {
+      // TODO 根据路由参数  判断跳转到输入密码  还是个人中心
+      this.$router.push('/personalCenter')
     }
   }
 }

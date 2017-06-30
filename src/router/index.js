@@ -5,6 +5,7 @@ import SalaryHome from '@/components/salaryHome/salaryHome'
 import PersonalCenter from '@/components/personalCenter/personalCenter'
 import PersonalData from '@/components/PersonalCenter/personalData/personalData'
 import SetPassword from '@/components/setPassword/setPassword'
+import ChangeCellPhoneNumber from '@/components/PersonalCenter/personalData/changeCellPhoneNumber/changeCellPhoneNumber'
 
 Vue.use(Router)
 
@@ -34,6 +35,11 @@ export default new Router({
       path: '/setPassword',
       name: 'SetPassword',
       component: SetPassword
+    },
+    {
+      path: '/changeCellPhoneNumber',
+      name: 'ChangeCellPhoneNumber',
+      component: ChangeCellPhoneNumber
     }
   ]
 })

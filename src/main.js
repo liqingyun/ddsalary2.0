@@ -21,6 +21,7 @@ Icon.inject('icon_security_input')  //  输入框  验证码安全
 Icon.inject('icon_modifyPassword')   // 修改密码 (钥匙)
 Icon.inject('icon_feedback')  //  意见反馈
 Icon.inject('icon_modifyInformation')   //  修改信息
+Icon.inject('icon_bindMobilePhoneNumber') // 绑定手机号码
 
 Vue.component('icon', Icon)
 

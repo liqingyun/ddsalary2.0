@@ -14,7 +14,7 @@
           <mt-cell title="姓名" value="李青云"></mt-cell>
         </li>
         <li class="personalDataItem">
-          <mt-cell title="手机" is-link value="13085352685"></mt-cell>
+          <mt-cell title="手机" is-link to="/changeCellPhoneNumber" value="13085352685"></mt-cell>
         </li>
         <li class="personalDataItem">
           <mt-cell title="所属部门" value="云计算事业部"></mt-cell>
