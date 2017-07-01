@@ -22,6 +22,7 @@ Icon.inject('icon_modifyPassword')   // 修改密码 (钥匙)
 Icon.inject('icon_feedback')  //  意见反馈
 Icon.inject('icon_modifyInformation')   //  修改信息
 Icon.inject('icon_bindMobilePhoneNumber') // 绑定手机号码
+Icon.inject('icon_queryPassword') // 查询密码 (进入时输入的 4 位数密码)
 
 Vue.component('icon', Icon)
 
