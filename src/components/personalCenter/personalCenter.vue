@@ -73,7 +73,6 @@ export default {
 
 <style lang="sass">
   .personalCenter
-    height: 100%
     background: #f1f1f1
     .personalCenter-header
     .personalCenter_content

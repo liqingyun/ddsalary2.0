@@ -41,7 +41,6 @@ export default {
 
 <style lang="sass">
   .changeCellPhoneNumber
-    height: 100%
     background: #fff
     .changeCellPhoneNumber-header
     .changeCellPhoneNumber_content

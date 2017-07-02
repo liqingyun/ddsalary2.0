@@ -85,7 +85,6 @@ export default {
 
 <style lang="sass">
   .bindNewPhoneNumberPage
-    height: 100%
     .bindNewPhoneNumber_content
       margin-top: 40px
       .bannerImgBox

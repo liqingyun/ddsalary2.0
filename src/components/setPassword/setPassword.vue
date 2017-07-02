@@ -75,7 +75,6 @@ export default {
 
 <style lang="sass">
   .setPasswordPage
-    height: 100%
     .setPassword-header
     .setPassword_content
       margin-top: 40px

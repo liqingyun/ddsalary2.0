@@ -138,7 +138,6 @@
 
 <style lang="sass">
   .queryPassword
-    height: 100%
     .queryPassword-header
     .queryPassword-content
       margin-top: 50px
