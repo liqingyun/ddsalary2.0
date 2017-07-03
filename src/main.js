@@ -9,7 +9,7 @@ import Icon from './Icon'
 
 Vue.use(MintUI)
 
-Icon.inject('down_arrow')
+Icon.inject('icon_downArrow') // 向下的箭头
 Icon.inject('setting')
 Icon.inject('backspace')
 Icon.inject('password')
