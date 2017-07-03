@@ -15,6 +15,9 @@
         <div class="topPart_titleBox">
           <icon slot="icon" style="color: 1892ff;" name="icon_home_salaryGrant" scale="2.2"></icon>
           <span class="titleText">2017年7月份工资</span>
+          <button class="iconMoreBtn" @click="seeMoreFun()" type="button" name="button">
+            <icon slot="icon" style="color: 1892ff;" name="icon_more" scale="2"></icon>
+          </button>
         </div>
         <!-- 薪资数据显示 -->
         <div class="topPart_mainContent">{{homeSalary}}</div>
@@ -74,7 +77,10 @@ export default {
     }
   },
   methods: {
-    selectYearFun () {
+    seeMoreFun () { // 更多按钮
+      console.log('查看更多')
+    },
+    selectYearFun () { // 选择年份按钮
       console.log('选择年份')
     }
   },
@@ -97,11 +103,15 @@ export default {
         .topPart_titleBox
           padding: 10px 15px
           border-bottom: 1px solid #e4e4e4
+          position: relative
           .titleText
             vertical-align: middle
             position: relative
             top: 2px
             font-size: 14px
+          .iconMoreBtn
+            position: absolute
+            right: 10px
         .topPart_mainContent
           padding: 10px
           text-align: center

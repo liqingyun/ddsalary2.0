@@ -24,6 +24,7 @@ Icon.inject('icon_modifyInformation')   //  修改信息
 Icon.inject('icon_bindMobilePhoneNumber') // 绑定手机号码
 Icon.inject('icon_queryPassword') // 查询密码 (进入时输入的 4 位数密码)
 Icon.inject('icon_home_salaryGrant') // 首页 薪资发放
+Icon.inject('icon_more') // 更多
 
 Vue.component('icon', Icon)
 
