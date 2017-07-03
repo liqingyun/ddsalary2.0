@@ -24,7 +24,7 @@
         <!-- top 标题 -->
         <div class="bottomPart_topTitle">
           <!-- 年份 -->
-          <button class="selectYearBtn" type="button" name="button">
+          <button class="selectYearBtn" @click="selectYearFun()" type="button" name="button">
             <span class="yearText">2017</span>
             <icon slot="icon" style="color: 1892ff;" name="icon_downArrow" scale="2"></icon>
           </button>
@@ -49,7 +49,11 @@
         </div>
         <!-- bottom 统计图表 -->
         <div class="bottomPart_bottomChart">
-
+          <my-lineExample
+          :options="{responsive: false, maintainAspectRatio: false}"
+          :width="400"
+          :height="200"
+          ></my-lineExample>
         </div>
       </div>
     </div>
@@ -60,6 +64,7 @@
 
 <script>
 import Footer from '../footer/footer'
+import LineExample from '../LineChart/LineChart'
 export default {
   data () {
     return {
@@ -68,8 +73,14 @@ export default {
       yearTotalSalary: '********元' // 每年总薪资，如果没有数据的时候(********元)
     }
   },
+  methods: {
+    selectYearFun () {
+      console.log('选择年份')
+    }
+  },
   components: {
-    'my-footer': Footer
+    'my-footer': Footer,
+    'my-lineExample': LineExample
   }
 }
 </script>
@@ -126,4 +137,6 @@ export default {
           .right_annualSalary
             background: #bee0fb
         .bottomPart_bottomChart
+          padding: 10px
+          box-sizing: border-box
 </style>
