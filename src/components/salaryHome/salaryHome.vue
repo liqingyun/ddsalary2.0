@@ -8,6 +8,7 @@
       </router-link>
     </mt-header>
     <!-- 首页内容 -->
+    <div class="clear_margin"></div>
     <div class="salaryHome_content">
       <!-- 上部分内容 -->
       <div class="mainContent_topBox">
@@ -32,6 +33,17 @@
             <icon slot="icon" style="color: 1892ff;" name="icon_downArrow" scale="2"></icon>
           </button>
         </div>
+        <!-- 选择年份遮罩 -->
+        <!-- 遮罩层 -->
+        <mt-popup class="myPopup" v-model="yearPopup" position="bottom">
+          <div class="picker-bg">
+            <mt-header class="popup-head">
+              <mt-button @click="yearPopup = !yearPopup" slot="left">取消</mt-button>
+              <mt-button @click="confirmSelectYear()"slot="right">确认</mt-button>
+            </mt-header>
+            <mt-picker :slots="yearSlot" @change="onYearChange" :visible-item-count="5"></mt-picker>
+          </div>
+        </mt-popup>
         <!-- middle 薪资显示 -->
         <div class="bottomPart_middleModular">
           <!-- 左边 显示月 -->
@@ -73,15 +85,29 @@ export default {
     return {
       homeSalary: '暂无数据', // 首页薪资数据，如果没有数据的时候(暂无数据)
       monthlyAverageSalary: '********元', // 每月平均薪资，如果没有数据的时候(********元)
-      yearTotalSalary: '********元' // 每年总薪资，如果没有数据的时候(********元)
+      yearTotalSalary: '********元', // 每年总薪资，如果没有数据的时候(********元)
+      yearPopup: false,
+      year: '1984',
+      yearSlot: [{
+        flex: 1,
+        values: ['1984', '1985', '1986', '1987', '1988', '1989', '1990', '1991', '1992', '1993', '1994', '1995'],
+        className: 'slot1'
+      }]
     }
   },
   methods: {
     seeMoreFun () { // 更多按钮
-      console.log('查看更多')
+      this.$router.push('/monthlySalaryDetails')
     },
     selectYearFun () { // 选择年份按钮
-      console.log('选择年份')
+      this.yearPopup = !this.yearPopup
+    },
+    onYearChange (picker, values) {
+      this.year = values[0]
+    },
+    confirmSelectYear () {
+      this.yearPopup = !this.yearPopup
+      console.log(this.year)
     }
   },
   components: {
@@ -129,6 +155,25 @@ export default {
               font-size: 15px
               padding: 0px 5px
               vertical-align: middle
+        .myPopup
+          width: 100%
+          .picker-bg
+            width: 100%
+            padding: 10px 0px 30px 0px
+            background: #fff
+            box-sizing: border-box
+            .popup-head
+              padding: 0px 20px
+              padding-bottom: 10px
+              background: #fff
+              border-bottom: 1px solid #e6e6e6
+              .mint-header-button
+                text-align: center
+              .mint-button
+                font-size: 18px
+                color: #26a2ff
+            .picker
+              margin-top: 30px
         .bottomPart_middleModular
           .left_monthlySalary, .right_annualSalary
             width: 50%

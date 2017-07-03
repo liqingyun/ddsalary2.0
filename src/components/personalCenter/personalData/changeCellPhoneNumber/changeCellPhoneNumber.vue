@@ -7,6 +7,7 @@
         <mt-button icon="back">返回</mt-button>
       </router-link>
     </mt-header>
+    <div class="clear_margin"></div>
     <div class="changeCellPhoneNumber_content">
       <!-- 手机图标 -->
       <div class="icon_PhoneBox">

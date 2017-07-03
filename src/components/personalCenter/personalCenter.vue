@@ -7,11 +7,10 @@
       </router-link>
     </mt-header>
     <!-- 内容 -->
-    <div class="clear_margin">
-    </div>
+    <div class="clear_margin"></div>
     <div class="personalCenter_content">
       <!-- 个人信息 -->
-      <div class="personalInformationBox" @click="jumpPersonalData()">
+      <div class="personalInformationBox">
         <!-- 信息内容 -->
         <div class="information_content">
           <!-- 头像 -->
@@ -34,17 +33,17 @@
           </div>
         </div>
         <!-- 修改图标 -->
-        <div class="icon_InformationBox">
+        <!-- <div class="icon_InformationBox">
           <icon slot="icon" style="color: #9a9a9a;" name="icon_modifyInformation" scale="3"></icon>
-        </div>
+        </div> -->
       </div>
       <!-- 功能列表 -->
       <ul class="personalFunctionList">
-        <li class="personalFunctionItem">
+        <!-- <li class="personalFunctionItem">
           <mt-cell title="我的反馈" is-link>
             <icon slot="icon" class="iconStyle" name="icon_feedback" scale="2.8"></icon>
           </mt-cell>
-        </li>
+        </li> -->
         <li class="personalFunctionItem">
           <mt-cell title="密码设置" is-link value="修改" to="/setPassword">
             <icon slot="icon" class="iconStyle" name="icon_modifyPassword" scale="2.8"></icon>
@@ -61,9 +60,6 @@
 import Footer from '../footer/footer'
 export default {
   methods: {
-    jumpPersonalData () {
-      this.$router.push('/personalData')
-    }
   },
   components: {
     'my-footer': Footer
@@ -74,6 +70,7 @@ export default {
 <style lang="sass">
   .personalCenter
     background: #f1f1f1
+    height: 100%
     .personalCenter-header
     .personalCenter_content
       margin-top: 50px

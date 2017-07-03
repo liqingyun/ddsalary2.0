@@ -6,6 +6,7 @@
       <mt-button slot="left" icon="back" @click="setPasswordBack()">返回</mt-button>
     </mt-header>
     <!-- 内容 -->
+    <div class="clear_margin"></div>
     <div class="setPassword_content">
       <!-- banner 图片 -->
       <div class="bannerImgBox">

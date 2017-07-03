@@ -7,6 +7,7 @@
       </router-link>
     </mt-header>
     <!-- 内容 -->
+    <div class="clear_margin"></div>
     <div class="bindNewPhoneNumber_content">
       <!-- banner 图片 -->
       <div class="bannerImgBox">
@@ -86,7 +87,7 @@ export default {
 <style lang="sass">
   .bindNewPhoneNumberPage
     .bindNewPhoneNumber_content
-      margin-top: 40px
+      margin-top: 39px
       .bannerImgBox
         .bannerImg
           width: 100%
