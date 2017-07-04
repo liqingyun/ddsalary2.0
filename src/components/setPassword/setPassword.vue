@@ -2,7 +2,7 @@
   <!-- 设置密码 -->
   <div class="setPasswordPage">
     <!-- 头部 -->
-    <mt-header class="setPassword-header" fixed title="密码设置">
+    <mt-header class="setPassword-header" fixed :title="titleName">
       <mt-button slot="left" icon="back" @click="setPasswordBack()">返回</mt-button>
     </mt-header>
     <!-- 内容 -->
@@ -48,7 +48,13 @@ export default {
       verificationCode: '',
       verificationCodeText: '获取短信验证码',
       nums: 60,
-      clock: null
+      clock: null,
+      titleName: '密码设置'
+    }
+  },
+  created () {
+    if (this.$route.query.type === 'forgetPassword') {
+      this.titleName = '重置密码'
     }
   },
   methods: {
@@ -68,7 +74,11 @@ export default {
     },
     setPasswordBack () {
       // TODO 根据路由参数  判断跳转到输入密码  还是个人中心
-      this.$router.push('/personalCenter')
+      if (this.titleName === '重置密码') {
+        this.$router.push('/')
+      } else if (this.titleName === '密码设置') {
+        this.$router.push('/personalCenter')
+      }
     }
   }
 }

@@ -31,6 +31,11 @@
             <span class="spot" v-show="storageNumber.length >= 4"></span>
           </li>
         </ul>
+        <div class="forgetPasswordBox">
+          <router-link class="forgetPassword" to="/setPassword?type=forgetPassword">
+            忘记密码？
+          </router-link>
+        </div>
       </div>
       <!-- 键盘 -->
       <div class="keyboard">
@@ -164,6 +169,11 @@
               border-radius: 50%
               margin: 0px auto
               margin-top: 12.5px
+        .forgetPasswordBox
+          text-align: center
+          margin-top: 25px
+          .forgetPassword
+            color: #4395ff
       .keyboard
         position: fixed
         bottom: 0px

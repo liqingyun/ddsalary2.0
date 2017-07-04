@@ -63,12 +63,15 @@
           <div class="clearfix"></div>
         </div>
         <!-- bottom 统计图表 -->
-        <div class="bottomPart_bottomChart">
+        <div class="bottomPart_bottomChart" @click="jumpsalaryHistory()">
           <my-lineExample
           :options="{responsive: false, maintainAspectRatio: false}"
           :width="400"
           :height="200"
+          :lineChartData="lineChartData"
+          :labelsData = "labelsData"
           ></my-lineExample>
+          <span class="lineBottomSub">月份</span>
         </div>
       </div>
     </div>
@@ -92,7 +95,9 @@ export default {
         flex: 1,
         values: ['1984', '1985', '1986', '1987', '1988', '1989', '1990', '1991', '1992', '1993', '1994', '1995'],
         className: 'slot1'
-      }]
+      }],
+      lineChartData: [0, 0, 0, 4050, 3980, 4080, 4050, 4000, 3900, 4110, 4050, 3980],
+      labelsData: ['', '', '', '', '', '', '', '', '', '', '', '']
     }
   },
   methods: {
@@ -108,6 +113,9 @@ export default {
     confirmSelectYear () {
       this.yearPopup = !this.yearPopup
       console.log(this.year)
+    },
+    jumpsalaryHistory () {
+      this.$router.push('/salaryHistory')
     }
   },
   components: {
@@ -194,4 +202,10 @@ export default {
         .bottomPart_bottomChart
           padding: 10px
           box-sizing: border-box
+          position: relative
+          .lineBottomSub
+            font-size: 12px
+            position: absolute
+            bottom: 15px
+            right: 12px
 </style>

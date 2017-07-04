@@ -8,6 +8,8 @@ import SetPassword from '@/components/setPassword/setPassword'
 import ChangeCellPhoneNumber from '@/components/PersonalCenter/personalData/changeCellPhoneNumber/changeCellPhoneNumber'
 import BindNewPhoneNumber from '@/components/PersonalCenter/personalData/changeCellPhoneNumber/bindNewPhoneNumber/bindNewPhoneNumber'
 import MonthlySalaryDetails from '@/components/salaryHome/monthlySalaryDetails/monthlySalaryDetails'
+import SalaryHistory from '@/components/salaryHome/salaryHistory/salaryHistory'
+import RecordDetails from '@/components/salaryHome/recordDetails/recordDetails'
 
 Vue.use(Router)
 
@@ -60,6 +62,18 @@ export default new Router({
       path: '/monthlySalaryDetails',
       name: 'MonthlySalaryDetails',
       component: MonthlySalaryDetails
+    },
+    // 薪资历史 详情
+    {
+      path: '/salaryHistory',
+      name: 'SalaryHistory',
+      component: SalaryHistory
+    },
+    // 薪资明细 详情
+    {
+      path: '/recordDetails',
+      name: 'RecordDetails',
+      component: RecordDetails
     }
   ]
 })

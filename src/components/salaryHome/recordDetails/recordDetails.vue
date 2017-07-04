@@ -1,16 +1,16 @@
 <template>
-  <div class="monthlySalaryDetails">
+  <div class="recordDetails">
     <!-- 头部 -->
-    <mt-header class="salaryHome-header" fixed title="当月薪资信息">
-      <router-link to="/salaryHome" slot="left">
+    <mt-header class="recordDetails-header" fixed title="薪资详情">
+      <router-link to="/salaryHistory" slot="left">
         <mt-button icon="back">返回</mt-button>
       </router-link>
     </mt-header>
     <!-- 内容 -->
     <div class="clear_margin"></div>
-    <div class="salaryDetails-content">
+    <div class="recordDetails-content">
       <!-- 金额banner -->
-      <div class="salaryDetails-banner">
+      <div class="recordDetails-banner">
           <div class="salary-text">
             <h2 class="date">{{dateInfo}}</h2>
             <h1 class="money"> {{realWages}}</h1>
@@ -20,43 +20,37 @@
       <div class="salaryPayable">
         <div class="salaryPayableTitle">
           <h2 class="salaryPayableTitle-text">应发金额</h2>
-          <h2 class="salaryPayableTitle-total">￥{{salaryPayableTotal}}</h2>
+          <h2 class="salaryPayableTitle-total">{{salaryPayableTotal}}</h2>
         </div>
         <mt-cell v-show="allowanceState" title="岗位薪资" :value="allowance"></mt-cell>
-        <mt-cell v-show="achievements_deductionState" title="绩效薪资" :value="achievements_deduction"></mt-cell>
         <mt-cell v-show="workingYearsState" title="工龄津贴" :value="workingYears"></mt-cell>
         <!-- <mt-cell v-show="otherAllowanceState" title="其他津贴" :value="otherAllowance"></mt-cell> -->
         <mt-cell v-show="otherBonusState" title="奖金" :value="otherBonus"></mt-cell>
-
       </div>
       <!-- 扣减工资 -->
       <div class="deductSalary">
         <mt-cell v-show="notpunchState" title="缺卡" :value="notpunch"></mt-cell>
         <mt-cell v-show="lateState" title="迟到" :value="late"></mt-cell>
-        <mt-cell v-show="compassionateState" title="事假" :value="compassionate"></mt-cell>
-        <mt-cell v-show="sickleaveState" title="病假" :value="sickleave"></mt-cell>
+        <mt-cell v-show="sickleaveState" title="事假" :value="sickleave"></mt-cell>
+        <mt-cell v-show="compassionateState" title="病假" :value="compassionate"></mt-cell>
         <mt-cell v-show="absenteeismState" title="旷工" :value="absenteeism"></mt-cell>
         <mt-cell v-show="baoxian_aState" title="医疗保险" :value="baoxian_a"></mt-cell>
         <mt-cell v-show="baoxian_bState" title="失业保险" :value="baoxian_b"></mt-cell>
         <mt-cell v-show="baoxian_cState" title="养老保险" :value="baoxian_c"></mt-cell>
         <mt-cell v-show="otherDeductionsState" title="其他" :value="otherDeductions"></mt-cell>
         <mt-cell v-show="incomeState" title="个税" :value="income"></mt-cell>
+
       </div>
     </div>
-    <mt-actionsheet :actions="actions" v-model="sheetVisible"></mt-actionsheet>
   </div>
 </template>
 
-<script>
+<script type="text/ecmascript-6">
   export default {
     components: {
     },
     data () {
       return {
-        sheetVisible: false,
-        btnText: '确认以上信息',
-        actions: [
-        ],
         // 发放
         salaryPayableTotal: '0.00',  // 应发总计
         allowance: '0.00', // 岗位薪资
@@ -96,16 +90,18 @@
         dateInfo: '2017年7月',  // 时间
         status: true  // 工资条发布状态  1 发布   0 未发布
       }
+    },
+    mounted () {
     }
   }
 </script>
 
 <style lang="sass">
-  .monthlySalaryDetails
-    .salaryDetails-content
-      background: #f2f2f2
+  .recordDetails
+    .recordDetails-content
+      background: #d5d5d5
       margin-top: 39px
-      .salaryDetails-banner
+      .recordDetails-banner
         background: #26a2ff
         width: 100%
         height: 120px
@@ -113,6 +109,7 @@
         text-align: center
         box-sizing: border-box
         .salary-text
+          display: inline-block
           .date
             color: #fff
             font-size: 16px
@@ -123,14 +120,10 @@
       .salaryPayable, .deductSalary
         padding: 0px 15px
         background: #fff
-        .mint-cell
-          &:last-child
-            .mint-cell-wrapper
-              border: none
-          .mint-cell-wrapper
-            background-size: 120% 0px
-            border-bottom: 1px solid #e6e6e6
-            padding: 0 2px
+        .mint-cell-wrapper
+          background-size: 120% 0px
+          border-bottom: 1px solid #e6e6e6
+          padding: 0 2px
           .mint-cell-text, .mint-cell-value
             font-size: 14px
         .salaryPayableTitle, .deductSalaryTitle

@@ -1,13 +1,15 @@
 import {Line} from 'vue-chartjs'
 export default Line.extend({
+  props: ['lineChartData', 'labelsData'],
   mounted () {
+    console.log(this.lineChartData)
     this.renderChart({
-      labels: ['一', '二', '三', '四', '五', '六', '七', '八', '九', '十', '十一', '十二'],
+      labels: this.labelsData,
       datasets: [
         {
           label: '月薪',
           backgroundColor: '#dff2ff',
-          data: [4000, 3900, 4110, 4050, 3980, 4080, 4050, 4000, 3900, 4110, 4050, 3980]
+          data: this.lineChartData
         }
       ]
     }, {responsive: true, maintainAspectRatio: false})
