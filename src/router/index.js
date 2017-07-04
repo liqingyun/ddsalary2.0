@@ -10,6 +10,7 @@ import BindNewPhoneNumber from '@/components/PersonalCenter/personalData/changeC
 import MonthlySalaryDetails from '@/components/salaryHome/monthlySalaryDetails/monthlySalaryDetails'
 import SalaryHistory from '@/components/salaryHome/salaryHistory/salaryHistory'
 import RecordDetails from '@/components/salaryHome/recordDetails/recordDetails'
+import LoadFailure from '@/components/loadFailure/loadFailure'
 
 Vue.use(Router)
 
@@ -74,6 +75,12 @@ export default new Router({
       path: '/recordDetails',
       name: 'RecordDetails',
       component: RecordDetails
+    },
+    // 网络加载超时
+    {
+      path: '/loadFailure',
+      name: 'LoadFailure',
+      component: LoadFailure
     }
   ]
 })
