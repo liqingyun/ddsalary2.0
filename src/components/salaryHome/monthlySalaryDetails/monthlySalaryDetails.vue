@@ -22,28 +22,35 @@
           <h2 class="salaryPayableTitle-text">应发金额</h2>
           <h2 class="salaryPayableTitle-total">￥{{salaryPayableTotal}}</h2>
         </div>
-        <mt-cell v-show="allowanceState" title="岗位薪资" :value="allowance"></mt-cell>
-        <mt-cell v-show="achievements_deductionState" title="绩效薪资" :value="achievements_deduction"></mt-cell>
-        <mt-cell v-show="workingYearsState" title="工龄津贴" :value="workingYears"></mt-cell>
-        <!-- <mt-cell v-show="otherAllowanceState" title="其他津贴" :value="otherAllowance"></mt-cell> -->
-        <mt-cell v-show="otherBonusState" title="奖金" :value="otherBonus"></mt-cell>
-
+        <ul>
+          <li v-for="(item, index) in shouldSalaryList">
+            <mt-cell v-show="allowanceState" :title="item.salaryTitle" ref="mintCell" @click.native="showFunction(index)" is-link :value="item.amountOfMoney"></mt-cell>
+            <transition name="slide-fade">
+              <div class="allowanceStyle" v-show="item.popupVisible">
+                {{item.salaryLabel}}
+              </div>
+            </transition>
+          </li>
+        </ul>
+        <!-- <mt-cell v-show="achievements_deductionState" title="绩效薪资" @click.native="showFunction()" :value="achievements_deduction"></mt-cell>
+        <mt-cell v-show="workingYearsState" title="工龄津贴" :value="workingYears" is-link></mt-cell>
+        <mt-cell v-show="otherAllowanceState" title="其他津贴" :value="otherAllowance"></mt-cell> -->
+        <!-- <mt-cell v-show="otherBonusState" title="奖金" :value="otherBonus" is-link></mt-cell> -->
       </div>
       <!-- 扣减工资 -->
       <div class="deductSalary">
-        <mt-cell v-show="notpunchState" title="缺卡" :value="notpunch"></mt-cell>
-        <mt-cell v-show="lateState" title="迟到" :value="late"></mt-cell>
-        <mt-cell v-show="compassionateState" title="事假" :value="compassionate"></mt-cell>
-        <mt-cell v-show="sickleaveState" title="病假" :value="sickleave"></mt-cell>
-        <mt-cell v-show="absenteeismState" title="旷工" :value="absenteeism"></mt-cell>
-        <mt-cell v-show="baoxian_aState" title="医疗保险" :value="baoxian_a"></mt-cell>
-        <mt-cell v-show="baoxian_bState" title="失业保险" :value="baoxian_b"></mt-cell>
-        <mt-cell v-show="baoxian_cState" title="养老保险" :value="baoxian_c"></mt-cell>
-        <mt-cell v-show="otherDeductionsState" title="其他" :value="otherDeductions"></mt-cell>
-        <mt-cell v-show="incomeState" title="个税" :value="income"></mt-cell>
+        <mt-cell v-show="notpunchState" title="缺卡" :value="notpunch" is-link></mt-cell>
+        <mt-cell v-show="lateState" title="迟到" :value="late" is-link></mt-cell>
+        <mt-cell v-show="compassionateState" title="事假" :value="compassionate" is-link></mt-cell>
+        <mt-cell v-show="sickleaveState" title="病假" :value="sickleave" is-link></mt-cell>
+        <mt-cell v-show="absenteeismState" title="旷工" :value="absenteeism" is-link></mt-cell>
+        <mt-cell v-show="baoxian_aState" title="医疗保险" :value="baoxian_a" is-link></mt-cell>
+        <mt-cell v-show="baoxian_bState" title="失业保险" :value="baoxian_b" is-link></mt-cell>
+        <mt-cell v-show="baoxian_cState" title="养老保险" :value="baoxian_c" is-link></mt-cell>
+        <mt-cell v-show="otherDeductionsState" title="其他" :value="otherDeductions" is-link></mt-cell>
+        <mt-cell v-show="incomeState" title="个税" :value="income" is-link></mt-cell>
       </div>
     </div>
-    <mt-actionsheet :actions="actions" v-model="sheetVisible"></mt-actionsheet>
   </div>
 </template>
 
@@ -53,9 +60,114 @@
     },
     data () {
       return {
-        sheetVisible: false,
-        btnText: '确认以上信息',
-        actions: [
+        shouldSalaryList: [
+          {
+            salaryTitle: '岗位薪资',
+            salaryLabel: '岗位薪资岗位薪资岗位薪资岗位薪资岗位薪资岗位薪资',
+            salaryState: false,
+            amountOfMoney: '0.00',
+            popupVisible: false
+          },
+          {
+            salaryTitle: '绩效薪资',
+            salaryLabel: '绩效薪资绩效薪资绩效薪资绩效薪资绩效薪资绩效薪资',
+            salaryState: false,
+            amountOfMoney: '0.00',
+            popupVisible: false
+          },
+          {
+            salaryTitle: '工龄津贴',
+            salaryLabel: '工龄津贴工龄津贴工龄津贴工龄津贴工龄津贴工龄津贴',
+            salaryState: false,
+            amountOfMoney: '0.00',
+            popupVisible: false
+          },
+          {
+            salaryTitle: '奖金',
+            salaryLabel: '奖金奖金奖金奖金奖金奖金奖金奖金奖金奖金奖金',
+            salaryState: false,
+            amountOfMoney: '0.00',
+            popupVisible: false
+          }
+        ],
+        deductionSalaryList: [
+          {
+            salaryTitle: '缺卡',
+            salaryLabel: '缺卡缺卡缺卡缺卡缺卡缺卡缺卡缺卡缺卡缺卡缺卡',
+            salaryState: false,
+            amountOfMoney: '0.00',
+            popupVisible: false
+          },
+          {
+            salaryTitle: '迟到',
+            salaryLabel: '迟到迟到迟到迟到迟到迟到迟到迟到迟到迟到迟到',
+            salaryState: false,
+            amountOfMoney: '0.00',
+            popupVisible: false
+          },
+          {
+            salaryTitle: '缺卡',
+            salaryLabel: '缺卡缺卡缺卡缺卡缺卡缺卡缺卡缺卡缺卡缺卡缺卡',
+            salaryState: false,
+            amountOfMoney: '0.00',
+            popupVisible: false
+          },
+          {
+            salaryTitle: '事假',
+            salaryLabel: '事假事假事假事假事假事假事假事假事假事假事假',
+            salaryState: false,
+            amountOfMoney: '0.00',
+            popupVisible: false
+          },
+          {
+            salaryTitle: '病假',
+            salaryLabel: '病假病假病假病假病假病假病假病假病假病假病假',
+            salaryState: false,
+            amountOfMoney: '0.00',
+            popupVisible: false
+          },
+          {
+            salaryTitle: '旷工',
+            salaryLabel: '旷工旷工旷工旷工旷工旷工旷工旷工旷工旷工旷工',
+            salaryState: false,
+            amountOfMoney: '0.00',
+            popupVisible: false
+          },
+          {
+            salaryTitle: '医疗保险',
+            salaryLabel: '医疗保险医疗保险医疗保险医疗保险医疗保险医疗保险医疗保险',
+            salaryState: false,
+            amountOfMoney: '0.00',
+            popupVisible: false
+          },
+          {
+            salaryTitle: '失业保险',
+            salaryLabel: '失业保险失业保险失业保险失业保险失业保险失业保险失业保险',
+            salaryState: false,
+            amountOfMoney: '0.00',
+            popupVisible: false
+          },
+          {
+            salaryTitle: '养老保险',
+            salaryLabel: '养老保险养老保险养老保险养老保险养老保险养老保险养老保险',
+            salaryState: false,
+            amountOfMoney: '0.00',
+            popupVisible: false
+          },
+          {
+            salaryTitle: '其他',
+            salaryLabel: '其他其他其他其他其他其他其他其他其他其他其他其他其他',
+            salaryState: false,
+            amountOfMoney: '0.00',
+            popupVisible: false
+          },
+          {
+            salaryTitle: '个税',
+            salaryLabel: '个税个税个税个税个税个税个税个税个税个税个税个税个税',
+            salaryState: false,
+            amountOfMoney: '0.00',
+            popupVisible: false
+          }
         ],
         // 发放
         salaryPayableTotal: '0.00',  // 应发总计
@@ -94,7 +206,27 @@
         realWages: '0.00',  // 实发工资
         realWagesState: true, // 实发工资状态
         dateInfo: '2017年7月',  // 时间
-        status: true  // 工资条发布状态  1 发布   0 未发布
+        status: true,  // 工资条发布状态  1 发布   0 未发布
+        popupVisible: false,
+        buttonBottom: 0
+      }
+    },
+    methods: {
+      showFunction (index) {
+        var mintCellAllowBottom = this.$refs.mintCell[index].$el.children[4]
+        if (this.shouldSalaryList[index].popupVisible) {
+          this.shouldSalaryList[index].popupVisible = false
+          mintCellAllowBottom.removeAttribute('id')
+        } else {
+          for (var i = 0; i < this.shouldSalaryList.length; i++) {
+            if (this.shouldSalaryList[i].popupVisible) {
+              this.shouldSalaryList[i].popupVisible = false
+              this.$refs.mintCell[i].$el.children[4].removeAttribute('id')
+            }
+          }
+          mintCellAllowBottom.setAttribute('id', 'mintCellAllowBottom')
+          this.shouldSalaryList[index].popupVisible = true
+        }
       }
     }
   }
@@ -121,18 +253,38 @@
             color: #fff
             font-size: 36px
       .salaryPayable, .deductSalary
-        padding: 0px 15px
+        padding: 0px 10px
         background: #fff
-        .mint-cell
+        li
           &:last-child
             .mint-cell-wrapper
               border: none
+        .mint-cell
           .mint-cell-wrapper
             background-size: 120% 0px
             border-bottom: 1px solid #e6e6e6
             padding: 0 2px
+          #mintCellAllowBottom::after
+            border: solid 2px #c8c8cd
+            border-bottom-width: 0
+            border-left-width: 0
+            content: " "
+            top: 40%
+            right: 10px
+            position: absolute
+            width: 10px
+            height: 10px
+            -webkit-transform: translateY(-50%) rotate(135deg)
+            transform: translateY(-50%) rotate(135deg)
+            .mint-cell-title
+              width: 80%
           .mint-cell-text, .mint-cell-value
             font-size: 14px
+          .mint-cell-label
+            width: 90%
+            overflow: hidden
+            text-overflow: ellipsis
+            white-space: nowrap
         .salaryPayableTitle, .deductSalaryTitle
           display: -webkit-flex /* Safari */
           display: flex
@@ -140,9 +292,24 @@
           padding: 10px 0px
           .salaryPayableTitle-text, .deductSalaryTitle-text, .salaryPayableTitle-total, .deductSalaryTitle-total
             color: #ff6f02
+        .allowanceStyle
+          width: 100%
+          padding: 10px 10px
+          font-size: 13px
+          color: #666
+          line-height: 20px
+          background: #eaeaea
+          box-sizing: border-box
       .salaryPayable
         padding-top: 20px
       .deductSalary
         margin-top: 20px
         padding-top: 20px
+  .slide-fade-enter-active
+    transition: all .3s
+  .slide-fade-leave-active
+    transition: all .8s
+  .slide-fade-enter, .slide-fade-leave-active
+    transform: translateX(10px)
+    opacity: 0
 </style>
