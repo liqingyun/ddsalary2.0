@@ -242,8 +242,8 @@ a:hover {
   text-decoration: none;
 }
 .mint-cell-allow-right::after {
-  width: 10px;
-  height: 10px;
+  width: 8px;
+  height: 8px;
   right: 10px;
 }
 .is-link > span {
